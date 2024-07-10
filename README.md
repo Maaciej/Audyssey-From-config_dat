@@ -40,7 +40,7 @@ Most blocks have a length of 192 floats, but there are also other lengths, 43, 1
 
 I checked a few blocks manually by transferring data to Excel and was pleasantly surprised, 
 these data look like time courses or power characteristics in the frequency domain or time, 
-however, I was surprised that the calculated values are so tiny, far from the sought values from -6dB to 20.
+however, I was surprised that the calculated values are so tiny, far from the sought values from -20 to 6 db.
 
 ![excel graph](Other_pictures/excel_graph.png)
 
