@@ -28,11 +28,11 @@ If I can view such precise Audyssey settings, then this data should also be foun
 I downloaded "config.dat" file and started examining it. 
 I noticed that you can easily see very dense binary areas which I called blocks; 
 
-![Adjust EQ](Other_pictures/blocks.png)
+![data blocks](Other_pictures/blocks.png)
 
 Then I noticed that these blocks occur in groups, I’m not sure if these groups have any significance.
 
-![Adjust EQ](Other_pictures/groups.png)
+![data groups](Other_pictures/groups.png)
 
 I started looking at these blocks, first there was a block address and then binary data which seemed to make sense when treated as little endian double word float.
 
@@ -42,16 +42,32 @@ I checked a few blocks manually by transferring data to Excel and was pleasantly
 these data look like time courses or power characteristics in the frequency domain or time, 
 however, I was surprised that the calculated values are so tiny, far from the sought values from -6dB to 20.
 
-![Adjust EQ](Other_pictures/excel_graph.png)
+![excel graph](Other_pictures/excel_graph.png)
 
 Because I wanted to process a lot of information in a specific way, I started writing a script in Python.
 
 The first version, "config_blocks_to_CVSs", finds sensible blocks and saves them to CSV files.
 
 The second script, "Groups_to_CSV_with_visualisation", collects information from all groups and blocks into one structure, records it on the disk, 
-and then generates charts for each group separately. 
+and then generates blocks charts for each group separately. 
 
-![Adjust EQ](Other_pictures/Group_2_graphs.png)
+![grup graphs](Other_pictures/Group_2_graphs.png)
 
 There are 18 groups, and 314 sensible blocks found, 
 these are data extracted from config.dat for my 7.1.2 configuration.
+
+The charts really look like some measurements or correction curves, but none of them resemble the filters shown by the OSD. 
+How do these data relate to what the MULTEQ Editor App saves in "*.ady" files?
+
+Why are there so many blocks, there are readings, but for what X-axis values?
+
+Some look like theoretical target curves.
+
+A certain set of blocks may be calibration data for the microphone.
+
+But which block is which and how are they connected?
+
+
+# Conclusion
+I can’t understand these data, 
+but if I understood them, it seems that there is a chance that they could be changed based on calculations from REW and try to load them into the amplifier.
